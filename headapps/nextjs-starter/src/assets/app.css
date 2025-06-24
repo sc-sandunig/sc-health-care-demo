@@ -1,7 +1,3 @@
-a[target='_blank']:after {
-  content: '\1F5D7'
-}
-
 /*
   Hides Sitecore editor markup,
   if you run the app in connected mode while the Sitecore cookies
