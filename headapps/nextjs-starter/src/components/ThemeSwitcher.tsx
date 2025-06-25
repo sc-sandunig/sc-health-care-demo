@@ -25,14 +25,14 @@ export const Default = (): JSX.Element => {
         aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
         onClick={() => setIsDark((prev) => !prev)}
         className={`
-          w-13 h-7 p-0.5 rounded-full flex items-center
+          w-12 h-6 p-0.5 rounded-full flex items-center
           transition-colors duration-300 border
          bg-foreground dark:bg-foreground-dark
         `}
       >
         <span
           className={`
-            absolute w-6 h-6 rounded-full transition-all duration-400
+            absolute w-5 h-5 rounded-full transition-all duration-400
            bg-background dark:bg-background-dark dark:translate-x-6
           `}
         />
