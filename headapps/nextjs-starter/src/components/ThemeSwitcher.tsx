@@ -20,15 +20,23 @@ export const Default = (): JSX.Element => {
   }, [isDark]);
 
   return (
-    <label className="theme-switcher">
-      <label htmlFor="theme-toggle" className="d-none"></label>
-      <input
-        id="theme-toggle"
-        type="checkbox"
-        checked={isDark}
-        onChange={() => setIsDark((prev) => !prev)}
-      />
-      <span className="theme-switcher-slider"></span>
-    </label>
+    <div className="relative inline-block">
+      <button
+        aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+        onClick={() => setIsDark((prev) => !prev)}
+        className={`
+          w-13 h-7 p-0.5 rounded-full flex items-center
+          transition-colors duration-300 border
+         bg-foreground dark:bg-foreground-dark
+        `}
+      >
+        <span
+          className={`
+            absolute w-6 h-6 rounded-full transition-all duration-400
+           bg-background dark:bg-background-tertiary-dark dark:translate-x-6
+          `}
+        />
+      </button>
+    </div>
   );
 };
