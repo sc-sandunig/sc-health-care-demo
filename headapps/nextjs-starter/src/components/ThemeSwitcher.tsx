@@ -33,7 +33,7 @@ export const Default = (): JSX.Element => {
         <span
           className={`
             absolute w-6 h-6 rounded-full transition-all duration-400
-           bg-background dark:bg-background-tertiary-dark dark:translate-x-6
+           bg-background dark:bg-background-dark dark:translate-x-6
           `}
         />
       </button>
