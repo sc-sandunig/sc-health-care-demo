@@ -89,20 +89,13 @@ export const Default = (props: NavigationProps): JSX.Element => {
 
   return (
     <div className={`component navigation ${styles}`} id={id ? id : undefined}>
-      <label className="menu-mobile-navigate-wrapper">
-        <input
-          type="checkbox"
-          className="menu-mobile-navigate"
-          checked={isOpenMenu}
-          onChange={() => handleToggleMenu()}
-        />
-        <div className="menu-humburger" />
-        <div className="component-content">
-          <nav>
-            <ul className="clearfix">{list}</ul>
-          </nav>
-        </div>
-      </label>
+      <div className="component-content">
+        <nav>
+          <ul className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
+            {list}
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 };
@@ -126,8 +119,11 @@ const NavigationList = (props: NavigationProps) => {
     ));
   }
 
+  const isRootItem = props.fields.Styles.includes('level0');
+
   return (
-    <li className={`${classNameList} ${active ? 'active' : ''}`} key={props.fields.Id} tabIndex={0}>
+    <li className={`${classNameList} relative flex flex-col ${isRootItem ? 'lg:flex-row' : ''}
+    gap-x-8 md:gap-12 gap-y-4 ${active ? 'active' : ''}`} key={props.fields.Id} tabIndex={0}>
       <div
         className={`navigation-title ${children.length ? 'child' : ''}`}
         onClick={() => setActive(() => !active)}
@@ -140,7 +136,9 @@ const NavigationList = (props: NavigationProps) => {
           {getNavigationText(props)}
         </Link>
       </div>
-      {children.length > 0 ? <ul className="clearfix">{children}</ul> : null}
+      {children.length > 0 ? (
+        <ul className="flex flex-col md:flex-row gap-4 md:gap-12">{children}</ul>
+      ) : null}
     </li>
   );
 };
