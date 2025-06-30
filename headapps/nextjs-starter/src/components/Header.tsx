@@ -48,7 +48,6 @@ export const Default = (props: HeaderProps): JSX.Element => {
         </div>
 
         <div className="flex items-center gap-4 ml-auto md:ml-8">
-
           <Placeholder
             name={`header-theme-switcher-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}
@@ -73,8 +72,10 @@ export const Default = (props: HeaderProps): JSX.Element => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden px-6 pb-4 bg-white dark:bg-background-dark text-[18px] 
-        font-mulish uppercase transition-all duration-300 ease-in-out">
+        <div
+          className="md:hidden px-6 pb-4 bg-white dark:bg-background-dark text-[18px] 
+        font-mulish uppercase transition-all duration-300 ease-in-out"
+        >
           <Placeholder
             name={`header-nav-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}
