@@ -6,6 +6,8 @@ import {
   TextField,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { faBars, faChevronDown, faChevronUp, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface Fields {
   Id: string;
@@ -89,9 +91,23 @@ export const Default = (props: NavigationProps): JSX.Element => {
 
   return (
     <div className={`component navigation ${styles}`} id={id ? id : undefined}>
+      <div className="lg:hidden flex justify-end">
+        <button
+          className="lg:hidden flex justify-center items-center w-6 h-6 cursor-pointer z-50"
+          onClick={() => handleToggleMenu()}
+        >
+          <FontAwesomeIcon icon={isOpenMenu ? faTimes : faBars} width={20} height={20} />
+        </button>
+      </div>
       <div className="component-content">
-        <nav>
-          <ul className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">
+        <nav
+          className={`${
+            isOpenMenu ? 'flex' : 'hidden'
+          } absolute top-full left-0 right-0 bg-background dark:bg-background-dark z-50
+
+          lg:static lg:flex`}
+        >
+          <ul className="container flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 mb-4 lg:mb-0 ml-4 lg:ml-0">
             {list}
           </ul>
         </nav>
@@ -123,15 +139,14 @@ const NavigationList = (props: NavigationProps) => {
 
   return (
     <li
-      className={`${classNameList} relative flex flex-col ${isRootItem ? 'lg:flex-row' : ''}
-    gap-x-8 md:gap-12 gap-y-4 ${active ? 'active' : ''}`}
+      className={`${classNameList}
+        relative flex flex-col ${isRootItem ? 'lg:flex-row' : ''}
+        gap-x-8 xl:gap-x-14 gap-y-4 ${active ? 'active' : ''} uppercase
+      `}
       key={props.fields.Id}
       tabIndex={0}
     >
-      <div
-        className={`navigation-title ${children.length ? 'child' : ''}`}
-        onClick={() => setActive(() => !active)}
-      >
+      <div className="flex items-center gap-1" onClick={() => setActive(() => !active)}>
         <Link
           field={getLinkField(props)}
           editable={sitecoreContext.pageEditing}
@@ -141,7 +156,17 @@ const NavigationList = (props: NavigationProps) => {
         </Link>
       </div>
       {children.length > 0 ? (
-        <ul className="flex flex-col md:flex-row gap-4 md:gap-12">{children}</ul>
+        <ul
+          className={`flex flex-col gap-x-8 xl:gap-x-14 gap-y-4 ${
+            isRootItem
+              ? 'lg:flex-row'
+              : `lg:absolute top-full -left-4 pl-4 lg:p-4 bg-background dark:bg-background-dark ${
+                  active ? 'block' : 'hidden'
+                }`
+          }`}
+        >
+          {children}
+        </ul>
       ) : null}
     </li>
   );

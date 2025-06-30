@@ -26,12 +26,11 @@ type HeaderProps = {
 
 export const Default = (props: HeaderProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <section className={`component header ${props?.params?.styles}`} id={id ? id : undefined}>
-      <div className="flex items-center justify-center gap-9 px-6 py-4 bg-background dark:bg-background-dark h-[100px]">
-        <div className="flex-shrink-0">
+    <section className={`component header relative ${props?.params?.styles}`} id={id ? id : undefined}>
+      <div className="flex items-center justify-center gap-4 md:gap-5 py-8 px-2 bg-background dark:bg-background-dark">
+        <div className="flex-shrink-0 mr-auto md:mr-10">
           <div className="block dark:hidden w-[180px] h-auto md:w-[345px]">
             <JssImage field={props.fields.LogoLight} width={345} height={45} />
           </div>
@@ -40,14 +39,14 @@ export const Default = (props: HeaderProps): JSX.Element => {
           </div>
         </div>
 
-        <div className="hidden md:flex text-[18px] font-mulish uppercase ml-24">
+        <div className="order-last lg:order-0 lg:mr-4 xl:mr-8 uppercase font-mulish">
           <Placeholder
             name={`header-nav-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}
           />
         </div>
 
-        <div className="flex items-center gap-4 ml-auto md:ml-8">
+        <div className="flex items-center gap-5 ml-auto md:ml-3">
           <Placeholder
             name={`header-theme-switcher-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}
@@ -60,28 +59,8 @@ export const Default = (props: HeaderProps): JSX.Element => {
           <JssLink field={props.fields.PhoneLink} className="">
             <FontAwesomeIcon icon={faPhone} width={18} height={13} />
           </JssLink>
-
-          <button
-            className="block md:hidden"
-            onClick={() => setMobileMenuOpen((prev) => !prev)}
-            aria-label="Toggle Menu"
-          >
-            <FontAwesomeIcon icon={mobileMenuOpen ? faTimes : faBars} width={20} height={20} />
-          </button>
         </div>
       </div>
-
-      {mobileMenuOpen && (
-        <div
-          className="md:hidden px-6 pb-4 bg-white dark:bg-background-dark text-[18px] 
-        font-mulish uppercase transition-all duration-300 ease-in-out"
-        >
-          <Placeholder
-            name={`header-nav-${props?.params?.DynamicPlaceholderId}`}
-            rendering={props.rendering}
-          />
-        </div>
-      )}
     </section>
   );
 };
