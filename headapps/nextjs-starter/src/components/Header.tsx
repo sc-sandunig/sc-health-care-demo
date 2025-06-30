@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   NextImage as JssImage,
   Link as JssLink,
@@ -9,7 +8,7 @@ import {
   Placeholder,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faEnvelope, faPhone, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 interface Fields {
   LogoDark: ImageField;
