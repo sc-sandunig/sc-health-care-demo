@@ -122,8 +122,12 @@ const NavigationList = (props: NavigationProps) => {
   const isRootItem = props.fields.Styles.includes('level0');
 
   return (
-    <li className={`${classNameList} relative flex flex-col ${isRootItem ? 'lg:flex-row' : ''}
-    gap-x-8 md:gap-12 gap-y-4 ${active ? 'active' : ''}`} key={props.fields.Id} tabIndex={0}>
+    <li
+      className={`${classNameList} relative flex flex-col ${isRootItem ? 'lg:flex-row' : ''}
+    gap-x-8 md:gap-12 gap-y-4 ${active ? 'active' : ''}`}
+      key={props.fields.Id}
+      tabIndex={0}
+    >
       <div
         className={`navigation-title ${children.length ? 'child' : ''}`}
         onClick={() => setActive(() => !active)}
