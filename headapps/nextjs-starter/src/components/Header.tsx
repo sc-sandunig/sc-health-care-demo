@@ -28,7 +28,10 @@ export const Default = (props: HeaderProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <section className={`component header relative ${props?.params?.styles}`} id={id ? id : undefined}>
+    <section
+      className={`component header relative ${props?.params?.styles}`}
+      id={id ? id : undefined}
+    >
       <div className="flex items-center justify-center gap-4 md:gap-5 py-8 px-2 bg-background dark:bg-background-dark">
         <div className="flex-shrink-0 mr-auto md:mr-10">
           <div className="block dark:hidden w-[180px] h-auto md:w-[345px]">
