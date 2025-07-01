@@ -33,10 +33,10 @@ export const Default = (props: HeaderProps): JSX.Element => {
     >
       <div className="flex items-center justify-center gap-4 md:gap-5 py-8 px-2 bg-background dark:bg-background-dark">
         <div className="flex-shrink-0 mr-auto md:mr-10">
-          <div className="block dark:hidden w-[180px] h-auto md:w-[345px]">
+          <div className="block dark:hidden w-44 h-auto md:w-88">
             <JssImage field={props.fields.LogoLight} width={345} height={45} />
           </div>
-          <div className="hidden dark:block w-[180px] h-auto md:w-[345px]">
+          <div className="hidden dark:block w-44 h-auto md:w-88">
             <JssImage field={props.fields.LogoDark} width={345} height={45} />
           </div>
         </div>
