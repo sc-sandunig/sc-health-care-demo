@@ -31,7 +31,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
       className={`component header relative ${props?.params?.styles}`}
       id={id ? id : undefined}
     >
-      <div className="flex items-center justify-center gap-4 md:gap-5 py-8 px-2 bg-background dark:bg-background-dark">
+      <div className="container py-6 md:py-8 flex justify-between items-center">
         <div className="flex-shrink-0 mr-auto md:mr-10">
           <div className="block dark:hidden w-44 h-auto md:w-88">
             <JssImage field={props.fields.LogoLight} width={345} height={45} />
