@@ -138,7 +138,10 @@ export const Default = (props: FooterProps): JSX.Element => {
 
             <div className="flex gap-4">
               {socialMedia.map((item) => (
-                <div className="w-8 h-8 rounded-full flex items-center justify-center border border-gray-300 dark:border-white text-sm hover:bg-blue-500 transition">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center border border-gray-300 dark:border-white text-sm hover:bg-blue-500 transition"
+                  key={item.key}
+                >
                   <JssLink field={item.field}>
                     <FontAwesomeIcon icon={item.icon} width={18} height={13} />
                   </JssLink>
