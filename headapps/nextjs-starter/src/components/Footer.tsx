@@ -39,7 +39,7 @@ type FooterProps = {
 
 export const Default = (props: FooterProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const ShowCopyRightFooter = props.params.ShowCopyRightFooter === '1';
+  const HideCopyRightFooter = props.params.HideCopyRightFooter !== '1';
   const socialMedia = [
     { key: 'facebook', icon: faFacebookF, field: props.fields.Facebook },
     { key: 'twitter', icon: faTwitter, field: props.fields.Twitter },
@@ -126,7 +126,7 @@ export const Default = (props: FooterProps): JSX.Element => {
       </div>
 
       {/* Copyright footer */}
-      {ShowCopyRightFooter && (
+      {HideCopyRightFooter && (
         <div className="container flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between h-auto gap-4 md:gap-5 py-4 px-2 bg-background dark:bg-background-dark text-center md:text-left">
           <JssRichText field={props.fields.CopyRightText} />
 
