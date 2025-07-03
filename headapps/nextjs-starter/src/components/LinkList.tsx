@@ -71,7 +71,7 @@ export const Default = (props: LinkListProps): JSX.Element => {
       <div className={styles} id={id ? id : undefined}>
         <div className="component-content">
           <Text tag="h3" field={datasource?.field?.title} />
-          <ul>{list}</ul>
+          <ul className="leading-6">{list}</ul>
         </div>
       </div>
     );
