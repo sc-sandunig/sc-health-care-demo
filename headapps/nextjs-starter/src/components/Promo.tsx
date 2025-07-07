@@ -6,7 +6,11 @@ import {
   ImageField,
   Field,
   LinkField,
+  Placeholder,
+  ComponentRendering,
+  ComponentParams,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import StrippedBlobAccent from './svg/StrippedBlobAccent';
 
 interface Fields {
   PromoIcon: ImageField;
@@ -16,6 +20,7 @@ interface Fields {
 }
 
 type PromoProps = {
+  rendering: ComponentRendering & { params: ComponentParams };
   params: { [key: string]: string };
   fields: Fields;
 };
@@ -30,21 +35,82 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+  const ShowCurvedTop = props.params.ShowCurvedTop === '1';
+  const HideBlobAccent = props.params.HideBlobAccent !== '1';
   if (props.fields) {
     return (
-      <div className={`component promo ${props?.params?.styles}`} id={id ? id : undefined}>
-        <div className="component-content">
-          <div className="field-promoicon">
-            <JssImage field={props.fields.PromoIcon} />
-          </div>
-          <div className="promo-text">
-            <div>
-              <div className="field-promotext">
-                <JssRichText field={props.fields.PromoText} />
-              </div>
+      <div
+        className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden`}
+        id={id ? id : undefined}
+      >
+        {/* Curved Top SVG */}
+        {ShowCurvedTop && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1600 197.47"
+            className="absolute top-0 left-0 w-full h-auto"
+            style={{ zIndex: 1 }}
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M0,0V2S1589.99-14.42,1599.94,197.47h.06V0H0Z"
+              className="dark:fill-background-dark fill-background"
+            />
+          </svg>
+        )}
+
+        <div
+          className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative"
+          style={{ zIndex: 2 }}
+        >
+          {/* Blob Accent SVG as sibling, not inside image */}
+          {HideBlobAccent && (
+            <div
+              className="absolute -left-30 top-0 z-0 pointer-events-none"
+              style={{
+                width: '400px',
+                height: '400px',
+                maxWidth: '60vw',
+                maxHeight: '60vw',
+              }}
+            >
+              <StrippedBlobAccent />
             </div>
-            <div className="field-promolink">
-              <JssLink field={props.fields.PromoLink} />
+          )}
+          <div className="relative order-1 lg:order-2">
+            <JssImage
+              field={props.fields.PromoIcon}
+              className="h-80 w-100 md:h-128 md:w-128 rounded-xl object-cover mb-2 lg:mb-0 relative z-10"
+            />
+          </div>
+
+          <div className="self-center order-2 lg:order-1">
+            <div className="font-mulish">
+              <JssRichText field={props.fields.PromoText} />
+            </div>
+            <div className="ml-2 mt-10 mb-10 lg:mb-0">
+              <JssLink
+                field={props.fields.PromoLink}
+                className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background-secondary px-4 py-2 font-semibold transition dark:bg-background-tertiary dark:text-background-secondary-dark"
+              >
+                <span>Get Started</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26.438"
+                  height="11.749"
+                  viewBox="0 0 26.438 11.749"
+                  className="w-[26px] h-[12px] text-background-secondary dark:text-background-secondary-dark"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M26.285,142.53l-5.875-5.355a.491.491,0,0,0-.536-.076.444.444,0,0,0-.291.444v3.427H.49a.471.471,0,0,0-.49.489V144.4a.471.471,0,0,0,.49.489H19.584v3.427a.461.461,0,0,0,.291.444.477.477,0,0,0,.536-.092l5.875-5.417a.5.5,0,0,0,.153-.367A.483.483,0,0,0,26.285,142.53Z"
+                    transform="translate(0 -137.052)"
+                  />
+                </svg>
+              </JssLink>
             </div>
           </div>
         </div>
@@ -57,22 +123,63 @@ export const Default = (props: PromoProps): JSX.Element => {
 
 export const WithText = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+  const ShowCurvedTop = props.params.ShowCurvedTop === '1';
+  const HideBlobAccent = props.params.HideBlobAccent !== '1';
   if (props.fields) {
     return (
-      <div className={`component promo ${props?.params?.styles}`} id={id ? id : undefined}>
-        <div className="component-content">
-          <div className="field-promoicon">
-            <JssImage field={props.fields.PromoIcon} />
+      <div
+        className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden`}
+        id={id ? id : undefined}
+      >
+        {/* Curved Top SVG */}
+        {ShowCurvedTop && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1600 197.47"
+            className="absolute top-0 left-0 w-full h-auto"
+            style={{ zIndex: 1 }}
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M0,0V2S1589.99-14.42,1599.94,197.47h.06V0H0Z"
+              className="dark:fill-background-dark fill-background"
+            />
+          </svg>
+        )}
+
+        <div
+          className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative"
+          style={{ zIndex: 2 }}
+        >
+          {/* Blob Accent SVG*/}
+          {HideBlobAccent && (
+            <div
+              className="absolute -left-30 top-0 z-0 pointer-events-none"
+              style={{
+                width: '400px',
+                height: '400px',
+                maxWidth: '60vw',
+                maxHeight: '60vw',
+              }}
+            >
+              <StrippedBlobAccent />
+            </div>
+          )}
+          <div className="relative">
+            <JssImage
+              field={props.fields.PromoIcon}
+              className="h-80 w-100 md:h-128 md:w-128 rounded-xl relative z-10"
+            />
           </div>
-          <div className="promo-text">
-            <div>
-              <div className="field-promotext">
-                <JssRichText className="promo-text" field={props.fields.PromoText} />
-              </div>
+          <div className="self-center">
+            <div className="field-promotext font-mulish mb-5">
+              <JssRichText field={props.fields.PromoText} />
             </div>
-            <div className="field-promotext">
-              <JssRichText className="promo-text" field={props.fields.PromoText2} />
-            </div>
+            <Placeholder
+              name={`body-why-choose-us-${props?.params?.DynamicPlaceholderId}`}
+              rendering={props.rendering}
+            />
           </div>
         </div>
       </div>

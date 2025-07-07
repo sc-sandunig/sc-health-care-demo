@@ -48,7 +48,7 @@ export const Default = (props: FooterProps): JSX.Element => {
 
   return (
     <section className={`component footer ${props?.params?.styles}`} id={id ? id : undefined}>
-      <div className="relative pt-10 pb-1">
+      <div className="relative pt-20 pb-1">
         {/* Background SVG */}
         <div className="absolute inset-0 w-full h-full pointer-events-none -z-10">
           <svg

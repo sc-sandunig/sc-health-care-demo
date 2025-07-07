@@ -48,7 +48,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
           />
         </div>
 
-        <div className="flex items-center gap-5 ml-auto md:ml-3">
+        <div className="flex items-center gap-3 md:gap-5 ml-auto md:ml-3">
           <Placeholder
             name={`header-theme-switcher-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}

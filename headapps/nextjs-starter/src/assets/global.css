@@ -167,3 +167,18 @@
     @apply cursor-pointer;
   }
 }
+
+.promo {
+  &.image-right {
+    @media (min-width: 1024px) {
+      .component-content {
+        div:first-child {
+          order: 2;
+        }
+        div:last-child {
+          order: 1;
+        }
+      }
+    }
+  }
+}
