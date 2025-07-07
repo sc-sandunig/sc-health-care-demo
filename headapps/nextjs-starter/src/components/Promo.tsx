@@ -115,7 +115,7 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
   if (props.fields) {
     return (
       <div
-        className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden`}
+        className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden group`}
         id={id ? id : undefined}
       >
         {/* Curved Top SVG */}
@@ -141,13 +141,13 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
               <StrippedBlobAccent />
             </div>
           )}
-          <div className="relative">
+          <div className="relative order-1 group-[.image-right]:order-1 lg:group-[.image-right]:order-2">
             <JssImage
               field={props.fields.PromoIcon}
               className="w-full h-full rounded-xl object-cover mb-2 lg:mb-0 relative z-10"
             />
           </div>
-          <div className="self-center">
+          <div className="self-center order-2 group-[.image-right]:order-2 lg:group-[.image-right]:order-1">
             <div className="text-4xl font-bold mb-10">
               <Text field={props.fields.PromoTitle} />
             </div>
