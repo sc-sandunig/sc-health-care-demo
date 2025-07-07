@@ -9,6 +9,7 @@ import {
   Placeholder,
   ComponentRendering,
   ComponentParams,
+  Text,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import StrippedBlobAccent from './svg/StrippedBlobAccent';
 
@@ -16,7 +17,7 @@ interface Fields {
   PromoIcon: ImageField;
   PromoText: Field<string>;
   PromoLink: LinkField;
-  PromoText2: Field<string>;
+  PromoTitle: Field<string>;
 }
 
 type PromoProps = {
@@ -36,11 +37,11 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const ShowCurvedTop = props.params.ShowCurvedTop === '1';
-  const HideBlobAccent = props.params.HideBlobAccent !== '1';
+  const ShowBlobAccent = props.params.HideBlobAccent !== '1';
   if (props.fields) {
     return (
       <div
-        className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden`}
+        className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden group`}
         id={id ? id : undefined}
       >
         {/* Curved Top SVG */}
@@ -48,8 +49,7 @@ export const Default = (props: PromoProps): JSX.Element => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1600 197.47"
-            className="absolute top-0 left-0 w-full h-auto"
-            style={{ zIndex: 1 }}
+            className="absolute top-0 left-0 w-full h-auto z-1"
             aria-hidden="true"
             focusable="false"
           >
@@ -60,40 +60,27 @@ export const Default = (props: PromoProps): JSX.Element => {
           </svg>
         )}
 
-        <div
-          className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative"
-          style={{ zIndex: 2 }}
-        >
-          {/* Blob Accent SVG as sibling, not inside image */}
-          {HideBlobAccent && (
-            <div
-              className="absolute -left-30 top-0 z-0 pointer-events-none"
-              style={{
-                width: '400px',
-                height: '400px',
-                maxWidth: '60vw',
-                maxHeight: '60vw',
-              }}
-            >
+        <div className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative z-2">
+          {/* Blob Accent SVG */}
+          {ShowBlobAccent && (
+            <div className="absolute -left-30 top-0 z-0 pointer-events-none w-96 h-96 max-w-3xl max-h-3xl">
               <StrippedBlobAccent />
             </div>
           )}
-          <div className="relative order-1 lg:order-2">
+          <div className="relative order-1 group-[.image-right]:order-1 lg:group-[.image-right]:order-2">
             <JssImage
               field={props.fields.PromoIcon}
-              className="h-80 w-100 md:h-128 md:w-128 rounded-xl object-cover mb-2 lg:mb-0 relative z-10"
+              className="w-full h-full rounded-xl object-cover mb-2 lg:mb-0 relative z-10"
             />
           </div>
 
-          <div className="self-center order-2 lg:order-1">
-            <div className="font-mulish">
-              <JssRichText field={props.fields.PromoText} />
+          <div className="self-center order-2 group-[.image-right]:order-2 lg:group-[.image-right]:order-1">
+            <div className="text-4xl font-bold mb-5">
+              <Text field={props.fields.PromoTitle} />
             </div>
-            <div className="ml-2 mt-10 mb-10 lg:mb-0">
-              <JssLink
-                field={props.fields.PromoLink}
-                className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background-secondary px-4 py-2 font-semibold transition dark:bg-background-tertiary dark:text-background-secondary-dark"
-              >
+            <JssRichText field={props.fields.PromoText} />
+            <div className="font-heading ml-2 mt-10 mb-10 lg:mb-0">
+              <JssLink field={props.fields.PromoLink} className="btn">
                 <span>{props.fields?.PromoLink?.value?.text}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,10 +108,10 @@ export const Default = (props: PromoProps): JSX.Element => {
   return <PromoDefaultComponent {...props} />;
 };
 
-export const WithText = (props: PromoProps): JSX.Element => {
+export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const ShowCurvedTop = props.params.ShowCurvedTop === '1';
-  const HideBlobAccent = props.params.HideBlobAccent !== '1';
+  const ShowBlobAccent = props.params.HideBlobAccent !== '1';
   if (props.fields) {
     return (
       <div
@@ -136,8 +123,7 @@ export const WithText = (props: PromoProps): JSX.Element => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1600 197.47"
-            className="absolute top-0 left-0 w-full h-auto"
-            style={{ zIndex: 1 }}
+            className="absolute top-0 left-0 w-full h-auto z-1"
             aria-hidden="true"
             focusable="false"
           >
@@ -148,33 +134,24 @@ export const WithText = (props: PromoProps): JSX.Element => {
           </svg>
         )}
 
-        <div
-          className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative"
-          style={{ zIndex: 2 }}
-        >
+        <div className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative z-2">
           {/* Blob Accent SVG*/}
-          {HideBlobAccent && (
-            <div
-              className="absolute -left-30 top-0 z-0 pointer-events-none"
-              style={{
-                width: '400px',
-                height: '400px',
-                maxWidth: '60vw',
-                maxHeight: '60vw',
-              }}
-            >
+          {ShowBlobAccent && (
+            <div className="absolute -left-30 top-0 z-0 pointer-events-none w-96 h-96 max-w-3xl max-h-3xl">
               <StrippedBlobAccent />
             </div>
           )}
           <div className="relative">
             <JssImage
               field={props.fields.PromoIcon}
-              className="h-80 w-100 md:h-128 md:w-128 rounded-xl relative z-10"
+              className="w-full h-full rounded-xl object-cover mb-2 lg:mb-0 relative z-10"
             />
           </div>
           <div className="self-center">
-            <div className="field-promotext font-mulish mb-5">
-              <JssRichText field={props.fields.PromoText} />
+            <div className="mb-5">
+              <div className="text-4xl font-bold mb-5">
+                <Text field={props.fields.PromoTitle} />
+              </div>
             </div>
             <Placeholder
               name={`body-why-choose-us-${props?.params?.DynamicPlaceholderId}`}

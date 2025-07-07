@@ -166,19 +166,8 @@
   [role='button']:not(:disabled) {
     @apply cursor-pointer;
   }
-}
 
-.promo {
-  &.image-right {
-    @media (min-width: 1024px) {
-      .component-content {
-        div:first-child {
-          order: 2;
-        }
-        div:last-child {
-          order: 1;
-        }
-      }
-    }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-xl bg-foreground text-background-secondary px-4 py-2 font-semibold transition dark:bg-background-tertiary dark:text-background-secondary-dark;
   }
 }

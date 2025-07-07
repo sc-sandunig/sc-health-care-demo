@@ -1,13 +1,16 @@
 import {
   NextImage as JssImage,
   ImageField,
-  RichTextField,
+  Field,
+  Text,
   RichText as JssRichText,
+  RichTextField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   FeatureIconLight: ImageField;
   FeatureIconDark: ImageField;
+  FeatureTitle: Field<string>;
   FeatureText: RichTextField;
 }
 
@@ -33,7 +36,12 @@ export const Default = (props: FeatureItemProps): JSX.Element => {
         />
       </div>
       <div className="flex-1">
-        <JssRichText field={props.fields.FeatureText} className="text-base" />
+        <div className="text-xl font-heading font-bold">
+          <Text field={props.fields.FeatureTitle} />
+        </div>
+        <div className="mt-2">
+          <JssRichText field={props.fields.FeatureText} />
+        </div>
       </div>
     </div>
   );
