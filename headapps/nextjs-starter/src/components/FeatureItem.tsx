@@ -21,7 +21,7 @@ interface FeatureItemProps {
 export const Default = (props: FeatureItemProps): JSX.Element => {
   return (
     <div className="flex items-start gap-4 mb-10">
-      <div className="flex-shrink-0 w-20 h-20 flex self-top md:self-center  items-center justify-center border-3 border-foreground dark:border-background rounded-lg">
+      <div className="flex-shrink-0 w-20 h-20 flex self-top md:self-center items-center justify-center border-3 border-foreground dark:border-background rounded-lg">
         <JssImage
           field={props.fields.FeatureIconLight}
           width={60}

@@ -148,10 +148,8 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
             />
           </div>
           <div className="self-center">
-            <div className="mb-5">
-              <div className="text-4xl font-bold mb-5">
-                <Text field={props.fields.PromoTitle} />
-              </div>
+            <div className="text-4xl font-bold mb-5">
+              <Text field={props.fields.PromoTitle} />
             </div>
             <Placeholder
               name={`body-why-choose-us-${props?.params?.DynamicPlaceholderId}`}
