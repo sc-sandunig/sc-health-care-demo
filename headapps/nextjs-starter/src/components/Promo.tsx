@@ -94,7 +94,7 @@ export const Default = (props: PromoProps): JSX.Element => {
                 field={props.fields.PromoLink}
                 className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background-secondary px-4 py-2 font-semibold transition dark:bg-background-tertiary dark:text-background-secondary-dark"
               >
-                <span>Get Started</span>
+                <span>{props.fields?.PromoLink?.value?.text}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="26.438"
