@@ -60,7 +60,7 @@ export const Default = (props: PromoProps): JSX.Element => {
           </svg>
         )}
 
-        <div className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative z-2">
+        <div className="component-content container grid lg:grid-cols-2 gap-10 pt-15 md:pt-30 pb-10 relative z-2">
           {/* Blob Accent SVG */}
           {ShowBlobAccent && (
             <div className="absolute -left-30 top-0 z-0 pointer-events-none w-96 h-96 max-w-3xl max-h-3xl">
@@ -134,7 +134,7 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
           </svg>
         )}
 
-        <div className="component-content container grid lg:grid-cols-2 gap-10 pt-30 pb-10 relative z-2">
+        <div className="component-content container grid lg:grid-cols-2 gap-10 pt-15 md:pt-30 pb-10 relative z-2">
           {/* Blob Accent SVG*/}
           {ShowBlobAccent && (
             <div className="absolute -left-30 top-0 z-0 pointer-events-none w-96 h-96 max-w-3xl max-h-3xl">
