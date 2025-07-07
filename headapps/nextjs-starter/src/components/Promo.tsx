@@ -148,7 +148,7 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
             />
           </div>
           <div className="self-center">
-            <div className="text-4xl font-bold mb-5">
+            <div className="text-4xl font-bold mb-10">
               <Text field={props.fields.PromoTitle} />
             </div>
             <Placeholder
