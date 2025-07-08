@@ -36,9 +36,9 @@ export const Default = (props: FeatureItemProps): JSX.Element => {
         />
       </div>
       <div className="flex-1">
-        <div className="text-xl font-heading font-bold">
+        <h6>
           <Text field={props.fields.FeatureTitle} />
-        </div>
+        </h6>
         <div className="mt-2">
           <JssRichText field={props.fields.FeatureText} />
         </div>
