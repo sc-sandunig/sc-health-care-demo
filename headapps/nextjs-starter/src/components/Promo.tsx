@@ -34,6 +34,21 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
   </div>
 );
 
+const CurvedTopSvg = (): JSX.Element => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 1600 197.47"
+    className="absolute top-0 left-0 w-full h-auto z-1"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      d="M0,0V2S1589.99-14.42,1599.94,197.47h.06V0H0Z"
+      className="dark:fill-background-dark fill-background"
+    />
+  </svg>
+);
+
 export const Default = (props: PromoProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const ShowCurvedTop = props.params.ShowCurvedTop === '1';
@@ -44,21 +59,7 @@ export const Default = (props: PromoProps): JSX.Element => {
         className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden group`}
         id={id ? id : undefined}
       >
-        {/* Curved Top SVG */}
-        {ShowCurvedTop && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1600 197.47"
-            className="absolute top-0 left-0 w-full h-auto z-1"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path
-              d="M0,0V2S1589.99-14.42,1599.94,197.47h.06V0H0Z"
-              className="dark:fill-background-dark fill-background"
-            />
-          </svg>
-        )}
+        {ShowCurvedTop && <CurvedTopSvg />}
 
         <div className="component-content container grid lg:grid-cols-2 gap-10 pt-15 md:pt-30 pb-10 relative z-2">
           {/* Blob Accent SVG */}
@@ -75,9 +76,9 @@ export const Default = (props: PromoProps): JSX.Element => {
           </div>
 
           <div className="self-center order-2 group-[.image-right]:order-2 lg:group-[.image-right]:order-1">
-            <div className="text-4xl font-bold mb-5">
+            <h3 className="mb-10">
               <Text field={props.fields.PromoTitle} />
-            </div>
+            </h3>
             <JssRichText field={props.fields.PromoText} />
             <div className="font-heading ml-2 mt-10 mb-10 lg:mb-0">
               <JssLink field={props.fields.PromoLink} className="btn">
@@ -118,21 +119,7 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
         className={`component promo bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles} relative overflow-hidden group`}
         id={id ? id : undefined}
       >
-        {/* Curved Top SVG */}
-        {ShowCurvedTop && (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1600 197.47"
-            className="absolute top-0 left-0 w-full h-auto z-1"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path
-              d="M0,0V2S1589.99-14.42,1599.94,197.47h.06V0H0Z"
-              className="dark:fill-background-dark fill-background"
-            />
-          </svg>
-        )}
+        {ShowCurvedTop && <CurvedTopSvg />}
 
         <div className="component-content container grid lg:grid-cols-2 gap-10 pt-15 md:pt-30 pb-10 relative z-2">
           {/* Blob Accent SVG*/}
@@ -148,9 +135,9 @@ export const WithPlaceHolder = (props: PromoProps): JSX.Element => {
             />
           </div>
           <div className="self-center order-2 group-[.image-right]:order-2 lg:group-[.image-right]:order-1">
-            <div className="text-4xl font-bold mb-10">
+            <h3 className="mb-10">
               <Text field={props.fields.PromoTitle} />
-            </div>
+            </h3>
             <Placeholder
               name={`body-why-choose-us-${props?.params?.DynamicPlaceholderId}`}
               rendering={props.rendering}
