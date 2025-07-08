@@ -6,8 +6,8 @@ import {
   TextField,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faChevronDown, faChevronUp, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 interface Fields {
   Id: string;
@@ -90,14 +90,12 @@ export const Default = (props: NavigationProps): JSX.Element => {
     ));
 
   return (
-    <div className={`component navigation ${styles}`} id={id ? id : undefined}>
-      <div className="lg:hidden flex justify-end">
-        <button
-          className="lg:hidden flex justify-center items-center w-6 h-6 cursor-pointer z-50"
-          onClick={() => handleToggleMenu()}
-        >
-          <FontAwesomeIcon icon={isOpenMenu ? faTimes : faBars} width={20} height={20} />
-        </button>
+    <div className={`component navigation text-lg font-heading ${styles}`} id={id ? id : undefined}>
+      <div
+        className="lg:hidden flex justify-center items-center w-6 h-6 cursor-pointer z-50 ml-2"
+        onClick={() => handleToggleMenu()}
+      >
+        <FontAwesomeIcon icon={isOpenMenu ? faTimes : faBars} width={20} height={20} />
       </div>
       <div className="component-content">
         <nav
@@ -146,21 +144,37 @@ const NavigationList = (props: NavigationProps) => {
       key={props.fields.Id}
       tabIndex={0}
     >
-      <div className="flex items-center gap-1" onClick={() => setActive(() => !active)}>
+      <div className="flex items-center gap-1">
         <Link
           field={getLinkField(props)}
           editable={sitecoreContext.pageEditing}
           onClick={props.handleClick}
+          className="whitespace-nowrap"
         >
           {getNavigationText(props)}
         </Link>
+        {children.length > 0 && !isRootItem ? (
+          <div
+            className="w-6 h-6 flex justify-center items-center"
+            onClick={() => setActive((a) => !a)}
+          >
+            <FontAwesomeIcon
+              icon={active ? faChevronUp : faChevronDown}
+              width={20}
+              height={20}
+              className="cursor-pointer"
+            />
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
       {children.length > 0 ? (
         <ul
           className={`flex flex-col gap-x-8 xl:gap-x-14 gap-y-4 ${
             isRootItem
               ? 'lg:flex-row'
-              : `lg:absolute top-full -left-4 pl-4 lg:p-4 bg-background dark:bg-background-dark ${
+              : `lg:absolute top-full -left-4 pl-4 lg:p-4 bg-background dark:bg-background-dark z-2 ${
                   active ? 'block' : 'hidden'
                 }`
           }`}

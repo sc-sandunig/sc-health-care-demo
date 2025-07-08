@@ -32,7 +32,7 @@ export const Default = (props: HeaderProps): JSX.Element => {
       id={id ? id : undefined}
     >
       <div className="container py-6 md:py-8 flex justify-between items-center">
-        <div className="flex-shrink-0 mr-auto md:mr-10">
+        <div className="flex-shrink-0 mr-auto md:mr-10 lg:mr-3">
           <div className="block dark:hidden w-44 h-auto md:w-88">
             <JssImage field={props.fields.LogoLight} width={345} height={45} />
           </div>
@@ -41,14 +41,14 @@ export const Default = (props: HeaderProps): JSX.Element => {
           </div>
         </div>
 
-        <div className="order-last lg:order-0 lg:mr-4 xl:mr-8 uppercase font-mulish">
+        <div className="order-last lg:order-0 lg:mr-4 xl:mr-8">
           <Placeholder
             name={`header-nav-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}
           />
         </div>
 
-        <div className="flex items-center gap-3 md:gap-5 ml-auto md:ml-3">
+        <div className="flex items-center gap-3 md:gap-5 ml-4 md:ml-2 xl:-ml-4">
           <Placeholder
             name={`header-theme-switcher-${props?.params?.DynamicPlaceholderId}`}
             rendering={props.rendering}
