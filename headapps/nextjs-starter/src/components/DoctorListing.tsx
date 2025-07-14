@@ -17,7 +17,9 @@ type DoctorListingProps = {
 
 export const Default = (props: DoctorListingProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const doctors = props.fields.items;
+  const doctors = props.fields.items.filter((doctor) => {
+    return doctor.fields && Object.keys(doctor.fields).length > 0;
+  });
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(3);
@@ -60,8 +62,7 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
       role="region"
       aria-label="Doctor carousel"
     >
-      <div className="relative">
-        {/* Header & Arrows */}
+      <div className="container">
         <div className="flex justify-between items-start mb-6 flex-wrap">
           {/* Arrows */}
           <div className="flex items-center gap-3 mt-4 md:mt-0 ml-auto">
