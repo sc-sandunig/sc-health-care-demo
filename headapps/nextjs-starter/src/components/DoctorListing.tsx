@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NextImage as JssImage, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Doctor } from './DoctorDetails';
 import Link from 'next/link';
-import CurvedClip from './svg/CurvedClip';
 
 type DoctorListingProps = {
   params: { [key: string]: string };
@@ -27,10 +26,25 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
     const handleResize = () => {
       setSlidesToShow(window.innerWidth < 768 ? 1 : 3);
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        goPrev();
+      } else if (e.key === 'ArrowRight') {
+        goNext();
+      }
+    };
+
     handleResize();
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [currentIndex, slidesToShow]);
 
   const maxIndex = Math.max(doctors.length - slidesToShow, 0);
 
@@ -39,12 +53,13 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
 
   return (
     <section
-      className={`component doctor-listing relative py-10 pb-20 bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles}`}
+      className={`component doctor-listing relative py-3 pb-10 bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles}`}
       id={id || undefined}
+      tabIndex={0}
+      role="region"
+      aria-label="Doctor carousel"
     >
-      <CurvedClip pos="bottom" />
-
-      <div className="container relative">
+      <div className="relative">
         {/* Header & Arrows */}
         <div className="flex justify-between items-start mb-6 flex-wrap">
           {/* Arrows */}
@@ -55,7 +70,9 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
                 onClick={goPrev}
                 aria-label="Previous"
                 disabled={currentIndex === 0}
-                className={`px-4 py-1 rounded-lg mr-3 ${currentIndex > 0 ? 'bg-accent-muted/40' : ''}`}
+                className={`px-4 py-1 rounded-lg mr-2 ${
+                  currentIndex > 0 ? 'bg-accent-muted/40' : ''
+                }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,8 +164,8 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
           {Array.from({ length: doctors.length - slidesToShow + 1 }).map((_, i) => (
             <div
               key={i}
-              className={`transition-all h-2 rounded-full ${
-                i === currentIndex ? 'w-6 bg-[#6EC3B2]' : 'w-2 bg-[#CFE7E3]'
+              className={`transition-all h-2 rounded-full bg-accent ${
+                i === currentIndex ? 'w-6' : 'w-2'
               }`}
             />
           ))}
