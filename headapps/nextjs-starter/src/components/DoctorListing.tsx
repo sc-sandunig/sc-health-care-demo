@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NextImage as JssImage, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Doctor } from './DoctorDetails';
 import Link from 'next/link';
+import ArrowButton from './svg/Arrow';
 
 type DoctorListingProps = {
   params: { [key: string]: string };
@@ -64,60 +65,9 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
         <div className="flex justify-between items-start mb-6 flex-wrap">
           {/* Arrows */}
           <div className="flex items-center gap-3 mt-4 md:mt-0 ml-auto">
-            <div className="">
-              {/* LEFT ARROW */}
-              <button
-                onClick={goPrev}
-                aria-label="Previous"
-                disabled={currentIndex === 0}
-                className={`px-4 py-1 rounded-lg mr-2 ${
-                  currentIndex > 0 ? 'bg-accent-muted/40' : ''
-                }`}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="28"
-                  viewBox="0 0 64.051 28.464"
-                >
-                  <g transform="translate(64.051 165.516) rotate(180)">
-                    <path
-                      d="M63.68,150.323,49.446,137.35a1.19,1.19,0,0,0-1.3-.185,1.076,1.076,0,0,0-.7,1.075v8.3H1.186A1.142,1.142,0,0,0,0,147.729v7.117a1.141,1.141,0,0,0,1.186,1.185H47.445v8.3a1.117,1.117,0,0,0,.7,1.075,1.156,1.156,0,0,0,1.3-.222L63.68,152.064a1.211,1.211,0,0,0,.37-.889A1.171,1.171,0,0,0,63.68,150.323Z"
-                      fill={`var(${
-                        currentIndex > 0 ? '--color-background-secondary-dark' : '--color-disabled'
-                      })`}
-                    />
-                  </g>
-                </svg>
-              </button>
-
-              {/* RIGHT ARROW */}
-              <button
-                onClick={goNext}
-                aria-label="Next"
-                disabled={currentIndex >= maxIndex}
-                className={`px-4 py-1 rounded-lg ${
-                  currentIndex < maxIndex ? 'bg-accent-muted/40' : ''
-                }`}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="28"
-                  viewBox="0 0 64.051 28.464"
-                >
-                  <g transform="translate(0 -137.052)">
-                    <path
-                      d="M63.68,150.323,49.446,137.35a1.19,1.19,0,0,0-1.3-.185,1.076,1.076,0,0,0-.7,1.075v8.3H1.186A1.142,1.142,0,0,0,0,147.729v7.117a1.141,1.141,0,0,0,1.186,1.185H47.445v8.3a1.117,1.117,0,0,0,.7,1.075,1.156,1.156,0,0,0,1.3-.222L63.68,152.064a1.211,1.211,0,0,0,.37-.889A1.171,1.171,0,0,0,63.68,150.323Z"
-                      fill={`var(${
-                        currentIndex < maxIndex
-                          ? '--color-background-secondary-dark'
-                          : '--color-disabled'
-                      })`}
-                    />
-                  </g>
-                </svg>
-              </button>
+            <div>
+              <ArrowButton direction="left" onClick={goPrev} disabled={currentIndex === 0} />
+              <ArrowButton direction="right" onClick={goNext} disabled={currentIndex >= maxIndex} />
             </div>
           </div>
         </div>
