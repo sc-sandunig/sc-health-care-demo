@@ -1,22 +1,17 @@
-import {
-  RichTextField,
-  TextField,
-  ImageField,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { RichTextField, TextField, ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export interface IGQLTextField {
-    jsonValue: TextField
+  jsonValue: TextField;
 }
 
 export interface IGQLImageField {
-    jsonValue: ImageField
+  jsonValue: ImageField;
 }
 
 export interface IGQLLinkField {
-    jsonValue: LinkField
+  jsonValue: LinkField;
 }
 
 export interface IGQLRichTextField {
-    jsonValue: RichTextField
+  jsonValue: RichTextField;
 }

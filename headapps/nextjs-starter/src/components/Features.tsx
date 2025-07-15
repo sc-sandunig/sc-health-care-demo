@@ -45,12 +45,11 @@ export const Default = (props: FeatureSectionProps): JSX.Element => {
     >
       <div className="container relative">
         {ShowBlobAccent && (
-          <div className="absolute right-1 w-32 h-32 md:w-50 md:h-50 pointer-events-none z-0">
+          <div className="absolute right-10 -top-9 lg:right-2 lg:top-0 w-32 h-32 lg:w-50 lg:h-50 pointer-events-none z-0">
             <StrippedBlobAccent />
           </div>
         )}
         <JssText tag="h3" field={props?.fields?.data?.datasource?.heading?.jsonValue} />
-
         <div className="mr-0 lg:mr-50 mb-6">
           <JssRichText field={props?.fields?.data?.datasource?.body?.jsonValue} />
         </div>
@@ -113,7 +112,7 @@ export const VerticalCards = (props: FeatureSectionProps): JSX.Element => {
     >
       <div className="container relative">
         {ShowBlobAccent && (
-          <div className="absolute right-0 -top-30 w-32 h-32 md:w-50 md:h-50 pointer-events-none z-0">
+          <div className="absolute -right-5 -top-30 lg:right-0 lg:-top-40 w-32 h-32 md:w-50 md:h-50 pointer-events-none z-0">
             <StrippedBlobAccent />
           </div>
         )}
