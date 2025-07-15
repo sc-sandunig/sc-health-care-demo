@@ -56,21 +56,17 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
 
   return (
     <section
-      className={`component doctor-listing relative py-3 pb-10 bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles}`}
+      className={`component doctor-listing relative pb-10 ${props?.params?.styles}`}
       id={id || undefined}
       tabIndex={0}
       role="region"
       aria-label="Doctor carousel"
     >
       <div className="container">
-        <div className="flex justify-between items-start mb-6 flex-wrap">
-          {/* Arrows */}
-          <div className="flex items-center gap-3 mt-4 md:mt-0 ml-auto">
-            <div>
-              <ArrowButton direction="left" onClick={goPrev} disabled={currentIndex === 0} />
-              <ArrowButton direction="right" onClick={goNext} disabled={currentIndex >= maxIndex} />
-            </div>
-          </div>
+        {/* Arrows */}
+        <div className="flex justify-end items-start gap-3 mb-6 lg:-mt-12">
+          <ArrowButton direction="left" onClick={goPrev} disabled={currentIndex === 0} />
+          <ArrowButton direction="right" onClick={goNext} disabled={currentIndex >= maxIndex} />
         </div>
 
         {/* Carousel Track */}
