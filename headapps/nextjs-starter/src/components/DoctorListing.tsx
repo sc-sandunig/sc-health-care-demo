@@ -56,7 +56,7 @@ export const Default = (props: DoctorListingProps): JSX.Element => {
 
   return (
     <section
-      className={`component doctor-listing relative py-3 pb-10 bg-background-secondary dark:bg-background-secondary-dark ${props?.params?.styles}`}
+      className={`component doctor-listing relative pb-10 ${props?.params?.styles}`}
       id={id || undefined}
       tabIndex={0}
       role="region"
