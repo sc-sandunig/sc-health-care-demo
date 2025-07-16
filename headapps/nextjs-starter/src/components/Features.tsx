@@ -102,8 +102,8 @@ export const VerticalCards = (props: FeatureSectionProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const features = props?.fields?.data?.datasource?.children?.results;
   const keepAccentBorder = props?.params?.KeepAccentBorder === '1';
-  const ShowBlobAccent = props.params.HideBlobAccent !== '1';
-  const showDarkIcon = props.params.ChangeIconDark === '1';
+  const ShowBlobAccent = props?.params?.HideBlobAccent !== '1';
+  const showDarkIcon = props?.params?.ChangeIconDark === '1';
 
   return (
     <section

@@ -38,7 +38,7 @@ export const Default = (props: SectionWrapperProps): JSX.Element => {
       {ShowCurvedTop && <CurvedClip pos="top" />}
       <div className="flex flex-col md:flex-row items-start gap-4 mb-10">
         {ShowBlobAccent && (
-          <div className="absolute right-0 top-2 w-32 h-32 md:w-50 md:h-50 z-0 pointer-events-none">
+          <div className="absolute container right-0 top-2 w-32 h-32 md:w-50 md:h-50 z-0 pointer-events-none">
             <StrippedBlobAccent />
           </div>
         )}
@@ -47,10 +47,8 @@ export const Default = (props: SectionWrapperProps): JSX.Element => {
             <h3 className="mb-6">
               <Text field={props.fields.SectionHeading} />
             </h3>
-            <div className="flex justify-between items-start flex-wrap mb-6">
-              <div className="mr-0 lg:mr-50">
-                <JssRichText field={props.fields.SectionDescription} />
-              </div>
+            <div className="mr-0 lg:mr-40">
+              <JssRichText field={props.fields.SectionDescription} />
             </div>
           </div>
           <div>
