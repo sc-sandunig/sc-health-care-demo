@@ -31,7 +31,7 @@ const HeroBlob = ({ isMobile }: { isMobile?: boolean }) => {
           height="901.187"
           filterUnits="userSpaceOnUse"
         >
-          <feOffset dy="3" input="SourceAlpha" />
+          <feOffset dy="3" />
           <feGaussianBlur stdDeviation="22.5" result="blur" />
           <feFlood floodOpacity="0.161" />
           <feComposite operator="in" in2="blur" />

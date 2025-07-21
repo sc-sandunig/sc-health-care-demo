@@ -61,7 +61,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
               <HeroBlob isMobile={isMobile} />
             </div>
             <div className="absolute top-15 right-10 lg:top-40 lg:right-50 md:top-30 md:right-30 2xl:right-70 2xl:top-60">
-              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] text-foreground">
+              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body">
                 <input
                   placeholder={t('your_name') || 'Your Name'}
                   type="text"
@@ -76,7 +76,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
                 <div className="relative z-4 w-70 h-15 xl:h-18 2xl:w-100">
                   <select
                     defaultValue=""
-                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full text-gray-500"
+                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full"
                   >
                     <option value="" disabled hidden>
                       {t('select_doctor') || 'Select Dr'}
