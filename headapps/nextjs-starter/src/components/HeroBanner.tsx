@@ -32,7 +32,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
 
   return (
     <section
-      className={`relative component hero-banner mb-115 md:mb-25 lg:mb-20 w-full ${props?.params?.styles}`}
+      className={`relative component hero-banner mb-115 md:mb-25 lg:mb-20 2xl:mb-50 w-full ${props?.params?.styles}`}
       id={id ? id : undefined}
     >
       {/* Hero Image */}
