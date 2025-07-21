@@ -61,7 +61,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
               <HeroBlob isMobile={isMobile} />
             </div>
             <div className="absolute top-15 right-10 lg:top-40 lg:right-50 md:top-30 md:right-30 2xl:right-70 2xl:top-60">
-              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body">
+              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body  text-foreground">
                 <input
                   placeholder={t('your_name') || 'Your Name'}
                   type="text"
