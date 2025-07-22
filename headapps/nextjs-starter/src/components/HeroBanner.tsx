@@ -61,22 +61,22 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
               <HeroBlob isMobile={isMobile} />
             </div>
             <div className="absolute top-15 right-10 lg:top-40 lg:right-50 md:top-30 md:right-30 2xl:right-70 2xl:top-60">
-              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body  text-foreground">
+              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body text-foreground">
                 <input
                   placeholder={t('your_name') || 'Your Name'}
                   type="text"
-                  className="z-10 bg-white p-4 rounded-lg shadow w-70 h-15 xl:h-18 2xl:w-100"
+                  className="z-10 bg-white p-4 rounded-lg shadow w-70 h-15 xl:h-18 2xl:w-100 placeholder:text-foreground focus:outline-none"
                 />
                 <input
                   placeholder={t('your_email') || 'Your email'}
                   type="email"
-                  className="z-4 bg-white p-4 rounded-lg shadow w-70 h-15 xl:h-18 2xl:w-100"
+                  className="z-4 bg-white p-4 rounded-lg shadow w-70 h-15 xl:h-18 2xl:w-100 placeholder:text-foreground focus:outline-none"
                 />
                 {/* Select Doctor */}
                 <div className="relative z-4 w-70 h-15 xl:h-18 2xl:w-100">
                   <select
                     defaultValue=""
-                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full"
+                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full focus:outline-none"
                   >
                     <option value="" disabled hidden>
                       {t('select_doctor') || 'Select Dr'}
@@ -92,7 +92,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
                 <div className="relative z-4 w-70 h-15 xl:h-18 2xl:w-100">
                   <select
                     defaultValue=""
-                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full"
+                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full focus:outline-none"
                   >
                     <option value="" disabled hidden>
                       {t('select_date') || 'Select Date'}
