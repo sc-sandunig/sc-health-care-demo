@@ -60,7 +60,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
             <div className="size-100 lg:size-170 2xl:size-240 md:size-140 z-2">
               <HeroBlob isMobile={isMobile} />
             </div>
-            <div className="absolute top-15 right-10 lg:top-40 lg:right-45 md:top-30 md:right-30 2xl:right-66 2xl:top-60">
+            <div className="absolute top-15 right-10 lg:top-40 lg:right-45 md:top-25 md:right-30 xl:top-32 2xl:right-66 2xl:top-60">
               <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body text-foreground">
                 <input
                   placeholder={t('your_name') || 'Your Name'}
@@ -117,7 +117,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
             </div>
 
             {/* Small solid circle blob bottom right */}
-            <div className="absolute size-20 sm:size-25 -bottom-20 sm:bottom-10 right-60 sm:right-80 bg-background-tertiary dark:bg-foreground rounded-full z-2" />
+            <div className="absolute size-20 sm:size-25 -bottom-20 sm:bottom-10 right-60 sm:right-80 md:right-70 md:bottom-5 2xl:size-30 2xl:right-75 bg-background-tertiary dark:bg-foreground rounded-full z-2" />
           </div>
         </div>
       </div>
