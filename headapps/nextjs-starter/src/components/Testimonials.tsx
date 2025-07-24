@@ -42,7 +42,7 @@ export const Default = (props: TestimonialsProps): JSX.Element => {
       <div className="container relative px-4 sm:px-6 lg:px-8">
         {/* Top Blob Accent */}
         {ShowBlobAccentTop && (
-          <div className="absolute -left-10 -top-40 z-0 pointer-events-none w-100 h-100 max-w-3xl max-h-3xl">
+          <div className="absolute -left-10 -top-40 z-0 pointer-events-none w-90 h-90 md:w-100 md:h-100 max-w-3xl max-h-3xl">
             <StrippedBlobAccent />
           </div>
         )}
@@ -77,7 +77,7 @@ export const Default = (props: TestimonialsProps): JSX.Element => {
 
         {/* Bottom Round Accent */}
         {ShowRoundAccentBottom && (
-          <div className="absolute -right-20 -bottom-20 sm:-right-30 sm:bottom-auto xl:-bottom-35 sm:top-96 pointer-events-none w-40 h-auto rotate-180 z-0 sm:z-10">
+          <div className="absolute top-330 md:top-90 xl:top-110 right-0 2xl:right-28 pointer-events-none w-40 h-auto z-0 sm:z-10 overflow-hidden 2xl:overflow-visible">
             <StrippedBlobAccent variant="circle" className="text-primary w-65 h-65" />
           </div>
         )}
