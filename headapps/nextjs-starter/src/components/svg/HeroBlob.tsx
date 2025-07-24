@@ -2,7 +2,7 @@ import React from 'react';
 
 const HeroBlob = ({ isMobile }: { isMobile?: boolean }) => {
   return isMobile ? (
-    <div className="absolute -top-10 left-0 w-113 h-130 -z-10 pointer-events-none">
+    <div className="absolute -top-10 left-0 w-90 h-130 -z-10 pointer-events-none">
       <svg
         viewBox="0 0 400 400"
         xmlns="http://www.w3.org/2000/svg"

@@ -32,7 +32,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
 
   return (
     <section
-      className={`relative component hero-banner mb-115 md:mb-25 lg:mb-20 2xl:mb-50 w-full ${props?.params?.styles}`}
+      className={`relative component hero-banner mb-115 md:mb-25 lg:mb-20 2xl:mb-50 ${props?.params?.styles}`}
       id={id ? id : undefined}
     >
       {/* Hero Image */}
@@ -54,29 +54,29 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
         </div>
       )}
 
-      <div className="relative mt-3 sm:mt-0 md:absolute md:top-0 md:left-0 md:w-full md:h-full xl:mt-10">
-        <div className="absolute top-0 -right-0 sm:right-0">
+      <div className="relative mt-3 left-0 sm:mt-0 md:absolute md:top-0 md:left-0 md:w-full md:h-full xl:mt-10">
+        <div className="absolute top-0 right-0 sm:right-0">
           <div className="relative">
-            <div className="size-100 lg:size-170 2xl:size-230 md:size-140 z-2">
+            <div className="size-90 lg:size-170 2xl:size-230 md:size-140 z-2">
               <HeroBlob isMobile={isMobile} />
             </div>
-            <div className="absolute top-15 right-10 lg:top-40 lg:right-45 md:top-25 md:right-30 xl:top-32 2xl:right-66 2xl:top-60">
-              <form className="flex flex-col gap-2 lg:gap-4 py-[5%] px-[5%] font-body text-foreground">
+            <div className="absolute top-25 right-18 lg:top-40 lg:right-45 md:top-25 md:right-30 xl:top-32 2xl:right-66 2xl:top-60">
+              <form className="flex flex-col gap-3 lg:gap-4 py-[5%] px-[5%] font-body text-foreground">
                 <input
                   placeholder={t('your_name') || 'Your Name'}
                   type="text"
-                  className="z-10 bg-white p-4 rounded-lg shadow w-70 h-15 xl:h-18 2xl:w-100 placeholder:text-foreground focus:outline-none"
+                  className="z-10 bg-white p-3 sm:p-4 rounded-lg shadow w-63 sm:w-70 h-12 sm:h-15 xl:h-18 2xl:w-100 placeholder:text-foreground focus:outline-none"
                 />
                 <input
                   placeholder={t('your_email') || 'Your email'}
                   type="email"
-                  className="z-4 bg-white p-4 rounded-lg shadow w-70 h-15 xl:h-18 2xl:w-100 placeholder:text-foreground focus:outline-none"
+                  className="z-4 bg-white p-3 sm:p-4 rounded-lg shadow w-63 sm:w-70 h-12 sm:h-15 xl:h-18 2xl:w-100 placeholder:text-foreground focus:outline-none"
                 />
                 {/* Select Doctor */}
-                <div className="relative z-4 w-70 h-15 xl:h-18 2xl:w-100">
+                <div className="relative z-4 w-63 sm:w-70 h-12 sm:h-15 xl:h-18 2xl:w-100">
                   <select
                     defaultValue=""
-                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full focus:outline-none"
+                    className="bg-white appearance-none p-3 sm:p-4 pr-10 rounded-lg shadow w-full h-full focus:outline-none"
                   >
                     <option value="" disabled hidden>
                       {t('select_doctor') || 'Select Dr'}
@@ -84,15 +84,15 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
                   </select>
                   <FontAwesomeIcon
                     icon={faChevronDown}
-                    className="absolute size-5 right-4 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
+                    className="absolute size-4 sm:size-5 right-4 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
                   />
                 </div>
 
                 {/* Select Date */}
-                <div className="relative z-4 w-70 h-15 xl:h-18 2xl:w-100">
+                <div className="relative z-4 w-63 sm:w-70 h-12 sm:h-15 xl:h-18 2xl:w-100">
                   <select
                     defaultValue=""
-                    className="bg-white appearance-none p-4 pr-10 rounded-lg shadow w-full h-full focus:outline-none"
+                    className="bg-white appearance-none p-3 sm:p-4 pr-10 rounded-lg shadow w-full h-full focus:outline-none"
                   >
                     <option value="" disabled hidden>
                       {t('select_date') || 'Select Date'}
@@ -100,9 +100,10 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
                   </select>
                   <FontAwesomeIcon
                     icon={faChevronDown}
-                    className="absolute size-5 right-4 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
+                    className="absolute size-4 sm:size-5 right-4 top-1/2 -translate-y-1/2 text-xs pointer-events-none"
                   />
                 </div>
+
                 <div className="font-heading z-4 w-auto h-10 position-center">
                   <button className="btn bg-foreground text-background-secondary">
                     {t('btn_label') || 'Make an Appointment'}
@@ -117,7 +118,7 @@ export const Default = (props: HeroBannerProps): JSX.Element => {
             </div>
 
             {/* Small solid circle blob bottom right */}
-            <div className="absolute size-20 sm:size-25 -bottom-20 sm:bottom-10 right-60 sm:right-80 md:right-70 md:bottom-5 2xl:size-30 2xl:right-75 bg-background-tertiary dark:bg-foreground rounded-full z-2" />
+            <div className="absolute size-20 sm:size-25 -bottom-30 sm:bottom-10 right-60 sm:right-80 md:right-70 md:bottom-5 2xl:size-30 2xl:right-75 bg-background-tertiary dark:bg-foreground rounded-full z-2" />
           </div>
         </div>
       </div>
