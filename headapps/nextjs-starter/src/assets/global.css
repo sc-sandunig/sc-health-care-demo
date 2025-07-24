@@ -172,4 +172,12 @@
   .btn {
     @apply inline-flex items-center gap-2 rounded-xl bg-foreground text-background-secondary px-4 py-2 font-semibold transition dark:bg-background-tertiary dark:text-background-secondary-dark;
   }
+
+  .color-background {
+    @apply bg-background-secondary dark:bg-background-secondary-dark;
+  }
+
+  .clean-background {
+    @apply bg-background dark:bg-background-dark;
+  }
 }
